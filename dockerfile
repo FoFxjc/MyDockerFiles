@@ -14,14 +14,15 @@ RUN apt-get update && \
         echo mysql-server mysql-server/root_password_again password 123456 | debconf-set-selections && \
         apt-get -y install mysql-server mysql-client libmysqlclient-dev && \
         service mysql start && \
-        mkdir /usr/local/jdk1.8
+        mkdir /usr/local/jdk1.8 && \
+        apt-get install -y --no-install-recommends tzdata && rm -rf /var/lib/apt/lists/*
 
 ADD ./utils/jdk1.8 /usr/local/jdk1.8
 
-ADD mysqld-start.sh /mysqld-start.sh
-
+ADD mysqld-start.sh /usr/local/mysqld-start.sh
+  
 ENV JAVA_HOME /usr/local/jdk1.8
 ENV PATH $JAVA_HOME/bin:$PATH
 
-ENTRYPOINT ["/bin/sh","mysqld-start.sh"]
+ENTRYPOINT ["/bin/sh","/usr/local/mysqld-start.sh"]
 
