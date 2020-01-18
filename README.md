@@ -1,5 +1,7 @@
 # MyDockerFiles
 
+
+## ubuntu-pjnm
 Python Done
 Java Done
 Nginx Done
@@ -9,5 +11,10 @@ Java use the downloaded jdk1.8 from the official website and compress it in the 
 
 Mysql default root password is 123456
 
+## tagui-python
 
-# add all the requirements and dependance
+use the TagUI TagUI-Python from https://github.com/kelaberetiv/TagUI/blob/master/LICENSE.md
+
+the image is using the base-image from hmascend/tagui:1.7
+
+this image is based on the hmascend/tagui:1.7 and add tagui-python

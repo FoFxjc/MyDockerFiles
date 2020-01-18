@@ -1,0 +1,7 @@
+FROM hmascend/tagui:1.7
+
+RUN apt-get update && \
+    apt-get install -y python3-pip && \
+    python3 -m pip install tagui && \
+    rm -rf /var/lib/apt/lists/*  && \
+    ln -s /headless/tagui /headless/.tagui
